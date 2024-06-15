@@ -334,7 +334,7 @@ function NCalc()//最終計算
 
   function Att()
   {
-    Attack = data["Character"]["Status"]["攻撃力"] + buff;
+    return Attack = data["Character"]["Status"]["攻撃力"] + buff;
   }
 
   let enLevel = enemyData[Level];
@@ -372,6 +372,8 @@ function NCalc()//最終計算
   }
   
   //ダメージ = (攻撃力 × 天賦倍率 × 特殊乗算 + 実数ダメージ加算) × ダメージバフ補正 × 会心補正 × 元素反応補正 × 敵の防御補正 × 敵の元素耐性補正 
-  let Damage = (Attack * talentValue["skillLevels"]["normalAttack"]["First"]["talentNLvl"] * SpecialBuff + AddRealDam) * DamageBuff * critDamage * enemyDefense() * enemyElemDefense();
+  let Damage = (Att() * talentValue["skillLevels"]["normalAttack"]["First"]["talentNLvl"] * SpecialBuff + AddRealDam) * DamageBuff * critDamage * enemyDefense() * enemyElemDefense();
   console.log(Damage);
 }
+
+NClac();
