@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原神ダメージ計算</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  UID:<input type="number" name="UID" id="UIDArea"><br>
+  キャラ名:<input type="text" name="charName" id="charName">
+  <button onclick="getInputValue()">取得</button><div id="errorMes"></div>
+
+  <div id="manual-input"><!--手入力用-->
+    <p>
+      <div>--ステータス--</div>
+        基礎攻撃力:<input type="number" name="normalAtt" id="normalAtt" min="1" max="1000" value="1"><br>
+        基礎防御力:<input type="number" name="normalDef" id="normalDef" min="1" max="1000" value="1"><br>
+        基礎HP:<input type="number" name="normalHP" id="normalHP" min="1" max="10000" value="1">
+    </p>
+    <p>
+      攻撃力:<input type="number" name="currentAtt" id="currentAtt" min="0" value="1"><br>
+      防御力:<input type="number" name="currentDef" id="currentDef" min="0" value="1"><br>
+      HP:<input type="number" name="currentHP" id="currentHP" min="0" value="1">
+    </p>
+    <p>
+      会心率:<input type="number" name="critRate" id="critRate" min="-95" max="100" value="5"><br>
+      会心ダメージ:<input type="number" name="critDamage" id="critDamage" min="50" max="1000" value="50"><br>
+
+      元素熟知:<input type="number" name="elemBonus" id="elemBonus" min="0" max="5000" value="0"><br>
+      元素チャージ効率:<input type="number" name="chargePar" id="chargePar" min="100" max="1000" value="100"><br>
+    </p>
+    <p>
+      炎元素ダメージ:<input type="number" name="fireDamBonus" id="fireDamBonus" min="0" max="1000" value="0"><br>
+      水元素ダメージ:<input type="number" name="waterDamBonus" id="waterDamBonus" min="0" max="1000" value="0"><br>
+      氷元素ダメージ:<input type="number" name="iceDamBonus" id="iceDamBonus" min="0" max="1000" value="0"><br>
+      雷元素ダメージ:<input type="number" name="thunderDamBonus" id="thunderDamBonus" min="0" max="1000" value="0"><br>
+      風元素ダメージ:<input type="number" name="windDamBonus" id="windDamBonus" min="0" max="1000" value="0"><br>
+      岩元素ダメージ:<input type="number" name="rockDamBonus" id="rockDamBonus" min="0" max="1000" value="0"><br>
+      草元素ダメージ:<input type="number" name="grassDamBonus" id="grassDamBonus" min="0" max="1000" value="0"><br>
+      物理ダメージ:<input type="number" name="physicsDamBonus" id="physicsDamBonus" min="0" max="1000" value="0"></p>
+    </p>
+    <p>
+      <div>--天賦レベル--</div>
+      通常攻撃:<input type="number" name="normalAttack" id="normalAttack" min="1" max="15" value="1"><br>
+      元素スキル:<input type="number" name="skillAttack" id="skillAttack" min="1" max="15" value="1"><br>
+      元素爆発:<input type="number" name="Ult" id="Ult" min="1" max="15" value="1">
+    </p>
+    <p>
+      <div>--聖遺物--</div>
+        <div>---花---</div>
+        レベル:<input type="number" name="flowerMain" id="flowerMain" min="0" max="20" value="0">
+
+        <div>---羽---</div>
+        レベル:<input type="number" name="flowerMain" id="flowerMain" min="0" max="20" value="0">
+
+        <div>---時計---</div>
+        レベル:<input type="number" name="flowerMain" id="flowerMain" min="0" max="20" value="0">
+
+        <div>---杯---</div>
+        レベル:<input type="number" name="flowerMain" id="flowerMain" min="0" max="20" value="0">
+
+        <div>---冠---</div>
+        レベル:<input type="number" name="flowerMain" id="flowerMain" min="0" max="20" value="0">
+    </p>
+  </div>
+  <div id="charStatusArea">
+    
+  </div>
+  <div>
+    <button onclick="manualInput()" id="manualButton">手動で入力する</button>
+    <button onclick="autoInput()" id="autoInput">自動で入力する</button>
+  </div>
+
+  <script defer src="system.js"></script>
+</body>
+</html>
